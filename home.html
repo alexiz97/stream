@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+        <script
+        src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous"></script>
+        <script src="assets/js/home.js"></script>
+        <script src="assets/js/main.js"></script>
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="assets/css/main.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        <div class="container-fluid display-table">
+            <div class="row display-table-row">
+                <div class="col-md-2 col-sm-1 hidden-xs display-table-cell v-align box" id="navigation">
+                    <div class="logo">
+                        <a hef="/dashboard"><img src="/assets/images/citybike.png" alt="citybike" class="hidden-xs hidden-sm">
+                            <img src="/assets/images/citybike.png" alt="citybike" class="visible-xs visible-sm circle-logo">
+                        </a>
+                    </div>
+                    <div class="navi">
+                        <ul>
+                            <li class="active"><a href="#" class="switch" id='rowe'><i class="fa fa-bicycle" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Wypożyczanie</span></a></li>
+                            <li><a href="#" class="switch" id='opla'><i class="fa fa-undo" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Zwrot</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-10 col-sm-11 display-table-cell v-align">
+                    <!--<button type="button" class="slide-toggle">Slide Toggle</button> -->
+                    <div class="row">
+                        <header>
+                            <div class="col-md-7">
+                                <nav class="navbar-default pull-left">
+                                    <div class="navbar-header">
+                                        <button type="button" class="navbar-toggle collapsed" data-toggle="offcanvas" data-target="#side-menu" aria-expanded="false">
+                                            <span class="sr-only">Toggle navigation</span>
+                                            <span class="icon-bar"></span>
+                                            <span class="icon-bar"></span>
+                                            <span class="icon-bar"></span>
+                                        </button>
+                                    </div>
+                                </nav>
+                                <div class="search hidden-xs hidden-sm">
+                                    <input type="text" placeholder="Wyszukiwanie" id="search">
+                                </div>
+                            </div>
+                            <div class="col-md-5">
+                                <div class="header-rightside">
+                                    <ul class="list-inline header-top pull-right">
+                                        <li class="inject_dolary">Twoje dolary: </li>
+                                        <li class="hidden-xs"><a href="#" class="add-dollar" data-toggle="modal" data-target="#add_dollar"></i>   Dodaj dolary</a></li>
+                                        <li><a href="#"><i class="fa fa-envelope" aria-hidden="true"></i></a></li>
+                                        <li>
+                                            <a href="#" class="icon-info">
+                                                <i class="fa fa-bell" aria-hidden="true"></i>
+                                                <span class="label label-primary">3</span>
+                                            </a>
+                                        </li>
+                                        <li class="dropdown">
+                                            <a href="#" class="dropdown-toggle injct_login" data-toggle="dropdown">
+                                                <b class="caret"></b></a>
+                                            <ul class="dropdown-menu">
+                                                <li>
+                                                    <div class="navbar-content">
+                                                        <span class='injct_login'></span>
+                                                        <p  class="text-muted small injct_email">
+                                                        </p>
+                                                        <div class="divider">
+                                                        </div>
+                                                        <a href="#" class="view btn-sm active">Zobacz profil</a>
+                                                        <div class="divider">
+                                                        </div>
+                                                        <a href="/logout" class="view btn-sm active">Wyloguj</a>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </header>
+                    </div>
+                    <div class="user-dashboard rowe" id='prev'>
+                        <h1 class='injct_login'>Witaj, </h1>
+                        <div class="row">
+                            <div class="col-md-5 col-sm-12 col-xs-12">
+    
+                                    <h2>Stacje</h2>
+    
+                                    <table class="table">
+                                        <thead class="thead-dark">
+                                          <tr>
+                                            <th scope="col">Nazwa</th>
+                                            <th scope="col">Ulica</th>
+                                            <th scope="col">Numer</th>
+                                            <th scope="col">Miasto</th>
+                                            <th scope="col"></th>
+                                            <th scope="col"></th>
+                                          </tr>
+                                        </thead>
+                                        <tbody class='stacja_table'>
+                                        </tbody>
+                                      </table>
+                            </div>
+                            <div class="col-md-7 col-sm-12 col-xs-12 gutter">
+
+                                    <h2>Dostępne rowery</h2>
+                                    <table class="table">
+                                        <thead class="thead-dark">
+                                          <tr>
+                                            <th scope="col">Marka</th>
+                                            <th scope="col">Model</th>
+                                            <th scope="col">Stacja</th>
+                                            <th scope="col"></th>
+                                          </tr>
+                                        </thead>
+                                        <tbody class='rowery_table'>
+                                        </tbody>
+                                      </table>
+                                </div>
+                            </div>
+                    </div>
+    
+                    <div class="user-oplaty opla">
+                        
+                        <div class="row">
+                            <div class="col-md-5 col-sm-12 col-xs-12 gutter wypo-table">
+                                <h1>Twoje wypożyczenia </h1>
+                                <table class="table">
+                                    <thead class="thead-dark">
+                                      <tr>
+                                        <th scope="col">Marka</th>
+                                        <th scope="col">Model</th>
+                                        <th scope="col">Wypożyczono</th>
+                                        <th scope="col">Koszt</th>
+                                        <th scope="col"></th>
+                                        <th scope="col"></th>
+                                    </tr>
+                                    </thead>
+                                    <tbody class='wypo_table'>
+                                    </tbody>
+                                  </table>
+                                </div>
+                            <div class="col-md-7 col-sm-12 col-xs-12 gutter">
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+        </div>
+        <div id="wypo_end" class="modal modal_toggle fade" role="dialog">
+            <div class="modal-dialog">
+    
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header login-header">
+                        <button type="button" class="close" data-dismiss="modal">×</button>
+                        <h4 class="modal-title">Zwróć rower: </h4>
+                    </div>
+                    <div class="modal-body">
+                        <form class="default" action="/api/endWypozycz" method="POST" autocomplete="on"> 
+                            <h1> Zwróć rower: </h1> 
+                                <label for="z_id_rower" class="id_rower" data-icon="p">Rower (id)</label>
+                                <input id="z_id_rower" name="id_rower" type="number" />
+                            <p> 
+                                <label for="z_id_stacja" class="id_stacja" data-icon="e" >Na jaką stację zwracasz rower?</label>
+                                <input id="z_id_stacja" name="id_stacja" required="required" type="int"/> 
+                            </p>
+                            <p> 
+                                <label for="z_koszt" class="koszt" data-icon="p">Koszt</label>
+                                <input id="z_koszt" name="koszt" required="required" type="number" />
+                            </p>
+                            <input type="submit" value="Potwierdź"/>
+                        </form>
+                        </div>
+                    <div class="modal-footer">
+                        <button type="button" class="cancel" data-dismiss="modal">Zamknij</button>
+                        <button type="submit" class="add-project" data-dismiss="modal">Dodaj</button>
+                    </div>
+                </div>
+    
+            </div>
+        </div>
+        <div id="add_dollar" class="modal modal_toggle fade" role="dialog">
+                <div class="modal-dialog">
+        
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header login-header">
+                            <button type="button" class="close" data-dismiss="modal">×</button>
+                            <h4 class="modal-title">Dodaj dolary: </h4>
+                        </div>
+                        <div class="modal-body">
+                            <form class="default" action="/api/addDolary" method="POST" autocomplete="on"> 
+                                <h1> Dodaj dolary: </h1> 
+                                <p> 
+                                    <label for="dolary" class="dolary" data-icon="e" >Kwota</label>
+                                    <input id="dolary" name="dolary" required="required" type="int"/> 
+                                </p>
+                                <input type="submit" value="Potwierdź"/>
+                            </form>
+                            </div>
+                        <div class="modal-footer">
+                            <button type="button" class="cancel" data-dismiss="modal">Zamknij</button>
+                            <button type="submit" class="add-project" data-dismiss="modal">Dodaj</button>
+                        </div>
+                    </div>
+        
+                </div>
+            </div>
+        <script src="/assets/js/socket.js"></script>
+    </body>
+</html>

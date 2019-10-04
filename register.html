@@ -1,0 +1,162 @@
+<!-- <!DOCTYPE html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+        <script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+  <script src="assets/js/main.js"></script>
+    </head>
+    <body>
+
+        <form  action="/api/register" method="POST" autocomplete="on"> 
+            <h1> Zarejestruj się: </h1> 
+            <p> 
+                <label for="login" class="login" data-icon="e" >Login</label>
+                <input id="login" name="login" required="required" type="login" placeholder="Login"/> 
+            </p>
+            <p> 
+                <label for="haslo" class="haslo" data-icon="p" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$">Hasło</label>
+                <input id="haslo" name="haslo" required="required" type="password" placeholder="Hasło"/>
+            </p>
+            <p> 
+                <label for="email" class="email" data-icon="p">Email</label>
+                <input id="email" name="email" required="required" type="email" placeholder="Email"/>
+            </p>
+            <h2>Dane osobowe: </h2>
+            <p> 
+                <label for="imie" class="imie" data-icon="p">Imię</label>
+                <input id="imie" name="imie" required="required" type="text" placeholder="Imie"/>
+            </p>
+            <p> 
+                <label for="nazwisko" class="nazwisko" data-icon="p">Hasło</label>
+                <input id="nazwisko" name="nazwisko" required="required" type="text" placeholder="Nazwisko"/>
+            </p>
+            <p> 
+                <label for="ulica" class="ulica" data-icon="p">Ulica</label>
+                <input id="ulica" name="ulica" required="required" type="text" placeholder="Ulica"/>
+            </p>
+            <p> 
+                <label for="numer" class="numer" data-icon="p">Numer</label>
+                <input id="numer" name="numer" required="required" type="number" placeholder="Numer"/>
+            </p>
+            <p> 
+                <label for="kod_pocztowy" class="kod_pocztowy" data-icon="p">Kod pocztowy</label>
+                <input id="kod_pocztowy" name="kod_pocztowy" required="required" type="text" placeholder="Kod pocztowy"/>
+            </p>
+            <p> 
+                <label for="miasto" class="miasto" data-icon="p">Miasto</label>
+                <input id="miasto" name="miasto" required="required" type="text" placeholder="Miasto"/>
+            </p>
+            <p class="signin button"> 
+                <input type="submit" value="Sign up"/> 
+            </p>
+            <p class="change_link">  
+                Already a member ?
+                <a href="/" class="to_register"> Go and log in </a>
+            </p>
+        </form>
+        <script src="" async defer></script>
+        <script src="/assets/js/socket.js"></script>
+    </body>
+</html>
+ -->
+
+<html>
+  <head>
+
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+  <script src="assets/js/index.js"></script>
+  <link rel="stylesheet" href="assets/css/login.css">
+  <script src="assets/js/main.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+  </head>
+<body id="LoginForm">
+<div class="container">
+<div class="login-form">
+<div class="main-div">
+    <div class="logo">
+        <img src="/assets/images/citybikea.png" alt="citybike" class="visible-xs visible-sm circle-logo">
+    </div>
+    <div class="panel">
+   <h2>Zarejestruj się: </h2>
+   </div>
+    <form action="/api/register" method="POST" autocomplete="on">
+
+        <div class="form-group">
+
+
+            <label for="login" class="login" data-icon="e" >Login</label>
+                <input id="login" name="login" required="required" type="login" class="form-control" placeholder="Login"/> 
+
+        </div>
+
+        <div class="form-group">
+            <label for="haslo" class="haslo" data-icon="p">Hasło</label>
+                <input id="haslo" name="haslo" required="required" type="password" class="form-control" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$" title="Przynajmniej 1 litera duża
+                Przynajmniej 1 litera mała
+                Przynajmniej 1 cyfra
+                Przynajmniej jeden symbol z dozwolonych --> !@#$%^&*_=+-
+                Od 8 do 12 znaków" placeholder="Hasło"/>
+
+        </div>
+        <div class="form-group">
+            <label for="email" class="email" data-icon="p">Email</label>
+                <input id="email" name="email" required="required" type="email" class="form-control" placeholder="Email"/>
+
+        </div>
+        <div class="form-group">
+            <label for="imie" class="imie" data-icon="p">Imię</label>
+                <input id="imie" name="imie" required="required" type="text" class="form-control" placeholder="Imie"/>
+
+        </div>
+        <div class="form-group">
+            <label for="nazwisko" class="nazwisko" data-icon="p">Nazwisko</label>
+                <input id="nazwisko" name="nazwisko" required="required" type="text" class="form-control" placeholder="Nazwisko"/>
+
+        </div>
+        <div class="form-group">
+            <label for="ulica" class="ulica" data-icon="p">Ulica</label>
+                <input id="ulica" name="ulica" required="required" type="text" class="form-control" placeholder="Ulica"/>
+
+        </div>
+        <div class="form-group">
+            <label for="numer" class="numer" data-icon="p">Numer</label>
+                <input id="numer" name="numer" required="required" type="number" class="form-control" placeholder="Numer"/>
+
+        </div>
+        <div class="form-group">
+            <label for="kod_pocztowy" class="kod_pocztowy" data-icon="p">Kod pocztowy</label>
+                <input id="kod_pocztowy" name="kod_pocztowy" required="required" type="text" class="form-control" placeholder="Kod pocztowy"/>
+
+        </div>
+        <div class="form-group">
+            <label for="miasto" class="miasto" data-icon="p">Miasto</label>
+                <input id="miasto" name="miasto" required="required" type="text" class="form-control" placeholder="Miasto"/>
+
+        </div>
+        <div class="forgot">
+        <a href="/" class="to_register">Masz już konto?</a>
+</div>
+        <button type="submit" class="btn btn-primary">Zarejestruj</button>
+
+    </form>
+    </div>
+</div></div></div>
+
+<script src="/assets/js/socket.js"></script>
+</body>
+</html>
+
