@@ -8,7 +8,7 @@ module.exports = function(sequelize, DataTypes) {
   var User = sequelize.define("User", {
     // The email cannot be null, and must be a proper email before creation
     email: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRING(126),
       allowNull: false,
       unique: true,
       validate: {
@@ -32,16 +32,16 @@ module.exports = function(sequelize, DataTypes) {
 
   //This is a fix by Samaila Philemon Bala in case you want to use ES6
 //and the above is not working
-//   User.beforeCreate(user => {
-//     user.password = bcrypt.hashSync(
-//       user.password,
-//        bcrypt.genSaltSync(10),
-//        null
-//      );
-//    });
-  User.hook("beforeCreate", function(user) {
-    user.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync(10), null);
-  });
+  User.beforeCreate(user => {
+    user.password = bcrypt.hashSync(
+      user.password,
+       bcrypt.genSaltSync(10),
+       null
+     );
+   });
+  // User.hook("beforeCreate", function(user) {
+  //   user.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync(10), null);
+  // });
   return User;
 };
 
