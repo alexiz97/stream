@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Platforma sprzedażowa</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="stylesheets/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="js/bootstrap.min.js"></script>
+  <link href="stylesheets/style.css" rel="stylesheet">
+  <link rel="stylesheet" href="stylesheets/login.css">
+  <link rel="manifest" href="manifest.json">
+</head>
+
+<body>
+  <div class="container">
+    <div class="login-form">
+      <div class="main-div">
+        <div class="logo">
+          <img src="images/logo.png" alt="Bialpak" class="visible-xs visible-sm circle-logo">
+        </div>
+        <div class="panel">
+          <h2>Platforma sprzedażowa</h2>
+          <br>
+          <br>
+          <br>
+        </div>
+        <form class="login">
+          <div class="form-group">
+            <label class="left label-title" for="exampleInputLogin1">Login:</label>
+            <input type="text" class="form-control" id="login-input" placeholder="Login">
+          </div>
+          <div class="form-group">
+            <label class="left label-title" for="exampleInputPassword1">Hasło:</label>
+            <input type="password" class="form-control" id="password-input" placeholder="Hasło">
+          </div>
+          <br>
+          <br>
+          <button type="submit" class="btn btn-default login-button">Zaloguj</button>
+        </form>
+        <br />
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script type="text/javascript" src="js/login_client.js"></script>
+  <script>
+    if('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/sw.js', { scope: '/' })
+        .then(function() {
+              console.log('Service Worker Registered');
+        });
+    }
+  </script>
+
+</body>
+
+</html>

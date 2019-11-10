@@ -7,36 +7,6 @@ var db = require("../models");
 //
 // Telling passport we want to use a Local Strategy. In other words,
 //we want login with a username/email and password
-passport.use('adminLocal', new LocalStrategy(
-  // Our user will sign in using an email, rather than a "username"
-  {
-    usernameField: "email",
-    passwordField: "password"
-  },
-  function(email, password, done) {
-    // When a user tries to sign in this code runs
-    db.Admin.findOne({
-      where: {
-        email: email
-      }
-    }).then(function(dbAdmin) {
-      // If there's no user with the given email
-      if (!dbAdmin) {
-        return done(null, false, {
-          message: "Incorrect email."
-        });
-      }
-      // If there is a user with the given email, but the password the user gives us is incorrect
-      else if (!dbAdmin.validPassword(password)) {
-        return done(null, false, {
-          message: "Incorrect password."
-        });
-      }
-      // If none of the above, return the user
-      return done(null, dbAdmin);
-    });
-  }
-));
 passport.use('clientLocal', new LocalStrategy(
   // Our user will sign in using an email, rather than a "username"
   {
@@ -71,14 +41,13 @@ passport.use('clientLocal', new LocalStrategy(
 // In order to help keep authentication state across HTTP requests,
 // Sequelize needs to serialize and deserialize the user
 // Just consider this part boilerplate needed to make it all work
-passport.serializeUser(function(user, done) {
-  done(null, user);
+passport.serializeUser(function(client, cb) {
+  cb(null, client);
 });
-
-passport.deserializeUser(function(obj, done) {
-  done(null, obj);
+//
+passport.deserializeUser(function(obj, cb) {
+  cb(null, obj);
 });
-
 //
 // Exporting our configured passport
 module.exports = passport;

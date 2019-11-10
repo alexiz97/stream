@@ -5,7 +5,7 @@ var bodyParser = require("body-parser");
 var session = require("express-session");
 // Requiring passport as we've configured it
 var passport = require("./config/passport");
-//
+
 // Setting up port and requiring models for syncing
 var PORT = process.env.PORT || 3010;
 var db = require("./models");
@@ -19,6 +19,7 @@ app.use(express.static("public"));
 app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true }));
 app.use(passport.initialize());
 app.use(passport.session());
+
 //
 // Requiring our routes
 require("./routes/html-routes.js")(app);

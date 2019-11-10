@@ -1,0 +1,1132 @@
+<!DOCTYPE html>
+
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Panel - Platforma Sprzedażowa</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+
+        <script
+        src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous"></script>
+        <script src="js/main.js"></script>
+        <script src="js/dashboard.js"></script>
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="stylesheets/main.css">
+    </head>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" rel="stylesheet">
+<body class="home">
+    <div class="container-fluid display-table">
+        <div class="row display-table-row">
+            <!-- Menu -->
+            <div class="col-md-2 col-sm-1 hidden-xs display-table-cell v-align box" id="navigation">
+
+                <div class="logo">
+
+                    <a hef="/admin"><img src="images/logo.png" alt="Bialpak" class="hidden-xs hidden-sm">
+
+                        <img src="images/logo.png" alt="Bialpak" class="visible-xs visible-sm circle-logo">
+
+                    </a>
+
+                </div>
+
+                <div class="navi">
+
+                    <ul>
+
+                        <li class="active"><a href="#" class="switch" id='stat'><i class="fas fa-chart-line"></i><span class="hidden-xs hidden-sm">Statystyki</span></a></li>
+
+                        <li><a href="#" class="switch" id='usr'><i class="fa fa-user" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Klienci</span></a></li>
+
+                        <li><a href="#" class="switch" id='prod'><i class="fas fa-box-open"></i></i><span class="hidden-xs hidden-sm">Produkty</span></a></li>
+
+                        <li><a href="#" class="switch" id='cat'><i class="fas fa-boxes"></i><span class="hidden-xs hidden-sm">Kategorie</span></a></li>
+                        
+                        <li><a href="#" class="switch" id='zam'><i class="fas fa-dolly-flatbed"></i><span class="hidden-xs hidden-sm">Zamówienia</span></a></li>
+
+                        <li><a href="#" class="switch" id='adm'><i class="fas fa-user-cog"></i><span class="hidden-xs hidden-sm">Administratorzy</span></a></li>
+                    </ul>
+
+                </div>
+
+            </div>
+            <div class="col-md-10 col-sm-11 display-table-cell v-align">
+                <!-- Navbar -->
+                <div class="row">
+
+                    <header>
+
+                        <div class="col-md-7">
+
+                            <nav class="navbar-default pull-left">
+
+                                <div class="navbar-header">
+
+                                    <button type="button" class="navbar-toggle collapsed" data-toggle="offcanvas" data-target="#side-menu" aria-expanded="false">
+
+                                        <span class="sr-only">Toggle navigation</span>
+
+                                        <span class="icon-bar"></span>
+
+                                        <span class="icon-bar"></span>
+
+                                        <span class="icon-bar"></span>
+
+                                    </button>
+
+                                </div>
+
+                            </nav>
+
+                            <div class="search hidden-xs hidden-sm">
+
+                                <input type="text" placeholder="Wyszukiwanie" id="search">
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-5">
+
+                            <div class="header-rightside">
+
+                                <ul class="list-inline header-top pull-right">
+
+                                    <li class="hidden-xs"><a href="/adminView" class="admin-view-button">Przejdź do platformy</a></li>
+                                    <li class="shown-xs hidden-sm hidden-md hidden-lg hidden-xl"><a href="/adminView" class="admin-view-button">Platforma</a></li>
+
+                                    <li class="dropdown">
+
+                                        <a href="#" class="dropdown-toggle injct_login admin-view-button" data-toggle="dropdown">
+
+                                            <b class="caret strzalka"></b></a>
+
+                                        <ul class="dropdown-menu">
+
+                                            <li>
+
+                                                <div class="navbar-content">
+
+                                                    <span class='injct_login'></span>
+
+                                                    <p  class="text-muted small injct_email">
+
+                                                    </p>
+
+                                                    <div class="divider">
+
+                                                    </div>
+
+                                                    <a href="#" class="view btn-sm active">Zobacz profil</a>
+
+                                                    <div class="divider">
+
+                                                    </div>
+
+                                                    <a href="/logout" class="view btn-sm active">Wyloguj</a>
+
+                                                </div>
+
+                                            </li>
+
+                                        </ul>
+
+                                    </li>
+
+                                </ul>
+
+                            </div>
+
+                        </div>
+
+                    </header>
+
+                </div>
+                <!-- Statystyki -->
+                <div class="user-dashboard stat" id='prev'>
+
+                    <h1 class='member-name'></h1>
+
+                    <div class="row">
+
+                        <div class="col-md-5 col-sm-5 col-xs-12 gutter">
+
+
+
+                            <div class="sales">
+
+                                <h2>Zamówienia</h2>
+
+
+
+                                <div class="btn-group">
+
+                                    <button class="btn btn-secondary btn-lg dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+                                        <span>Statystyki:</span>
+
+                                    </button>
+
+                                    <div class="dropdown-menu">
+
+                                        <a href="#">Siedlce</a>
+
+                                        <a href="#">Warszawa</a>
+
+                                        <a href="#">Kraków</a>
+
+                                        <a href="#">Gdańsk</a>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-7 col-sm-7 col-xs-12 gutter">
+
+
+
+                            <div class="sales report">
+
+                                <h2>Zamówienia</h2>
+
+                                <div class="btn-group">
+
+                                    <button class="btn btn-secondary btn-lg dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+                                        <span>Miasto:</span>
+
+                                    </button>
+
+                                    <div class="dropdown-menu">
+
+                                        <a href="#">Siedlce</a>
+
+                                        <a href="#">Warszawa</a>
+
+                                        <a href="#">Kraków</a>
+
+                                        <a href="#">Gdańsk</a>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+                <!-- Produkty -->
+                <div class="user-produkty prod">
+
+                    
+
+                    <div class="row">
+
+                        <div class="col-md-6 col-sm-12 col-xs-12 gutter products-table">
+
+                            <h1>Produkty </h1>
+
+                            <div class="table-responsive">
+
+                                <table class="table">
+
+                                    <thead class="thead-dark">
+
+                                      <tr>
+
+                                        <th scope="col">#</th>
+
+                                        <th scope="col">Nazwa</th>
+
+                                        <th scope="col">Rabat</th>
+
+                                        <th scope="col">Kwota</th>
+
+                                        <th scope="col"></th>
+                                        
+                                        <th scope="col"></th>
+
+                                      </tr>
+
+                                    </thead>
+
+                                    <tbody class='products_table'>
+
+                                    </tbody>
+
+                                  </table>
+
+                            </div>
+
+                            
+
+                            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#add_product">Dodaj produkt</button>
+
+                        </div>
+
+                        <div class="col-md-6 col-sm-12 col-xs-12 gutter">
+
+
+
+                        </div>
+
+                    </div>
+
+                </div>
+                <!-- Kategorie -->
+                <div class="user-kat cat">
+
+                    <h1 class='login'>Kategorie</h1>
+
+                    <div class="row">
+
+                        <div class="col-md-5 col-sm-12 col-xs-12 gutter categories-table">
+
+                                <div id='panel-body0' class='categories'>
+                                        
+
+                                </div>
+
+                                <div class="panel-group" style="margin: 15px; margin-top: 0px;">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <form class="append_category" action="/api/addCategory"> 
+                                                <div class="input-group">
+                                                    <input class="hidden" name="parent_category_id" value="0"/>
+                                                    <input type="text" name="name" class="form-control" placeholder="Podaj nazwę">
+                                                    <span class="input-group-btn">
+                                                        <button class="btn btn-success" name="button" type="submit">Dodaj kategorię główną</button>
+                                                    </span> 
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+                <!-- Zamówienia -->
+                <div class="user-uzytkownicy usr">
+
+                    <h1 class='login'>Klienci </h1>
+
+                    <div class="row">
+
+                        <div class="col-md-5 col-sm-12 col-xs-12 gutter users-table">
+
+                            <table class="table">
+
+                                <thead class="thead-dark">
+
+                                  <tr>
+
+                                    <th scope="col">#</th>
+
+                                    <th scope="col">Nazwa</th>
+
+                                    <th scope="col">Login</th>
+
+                                    <th scope="col">Email</th>
+
+                                    <th scope="col">Subiekt ID</th>
+
+                                    <th scope="col"></th>
+
+                                    <th scope="col"></th>
+
+                                  </tr>
+
+                                </thead>
+
+                                <tbody class='clients_table'>
+
+                                </tbody>
+
+                              </table>
+
+                              <button type="button" class="btn btn-success" data-toggle="modal" data-target="#add_client">Dodaj klienta</button>
+
+                        </div>
+
+                        <div class="col-md-7 col-sm-12 col-xs-12 gutter">
+
+                            <thead class="thead-dark">
+
+                                <tr>
+
+                                  <th scope="col">#</th>
+
+                                  <th scope="col">Nazwa</th>
+
+                                  <th scope="col">Login</th>
+
+                                  <th scope="col">Email</th>
+
+                                  <th scope="col">Subiekt ID</th>
+
+                                  <th scope="col"></th>
+
+                                  <th scope="col"></th>
+
+                                </tr>
+
+                              </thead>
+
+                              <tbody class='clients_table'>
+
+                              </tbody>
+
+                            </table>
+
+                        </div>
+
+                    </div>
+
+                </div>
+                <!-- Administratorzy -->
+                <div class="user-administratorzy adm">
+
+                    <h1 class='login'>Raporty </h1>
+
+                    <div class="row">
+
+                        <div class="col-md-5 col-sm-12 col-xs-12 gutter">
+
+                                <p>Lista wypożyczeń według daty</p>
+
+                            <form action="api/getWypozyczeniaByData"  class="form-inline raport">
+
+                                <div class="form-group mb-2">
+
+                                        <label for="czas_od" class="sr-only">Data od:</label>
+
+                                        <input type="datetime" name="czas_od" class="form-control" id="czas_od" placeholder="2019-05-01 14:59:59">
+
+                                        <label for="czas_do" class="sr-only">Data do:</label>
+
+                                        <input type="datetime" name="czas_do" class="form-control" id="czas_do" placeholder="2019-05-27 14:59:59">
+
+                                </div>
+
+                                <div class="form-group mx-sm-3 mb-2">
+
+                                  
+
+                                  <input type="submit"></input>
+
+                                </div>
+
+                                
+
+                              </form>
+
+                              <p>Lista rowerów wg stanu</p>
+
+                              <form action="api/getStanprodukty"  class="form-inline raport">
+
+                                  <div class="form-group mb-2">
+
+                                          <label for="id_stan" class="sr-only">Id_stanu</label>
+
+                                          <input type="number" name="id_stan" class="form-control" id="id_stan" placeholder="1">
+
+                                          
+
+                                  </div>
+
+                                  <div class="form-group mx-sm-3 mb-2">
+
+                                    
+
+                                    <input type="submit"></input>
+
+                                  </div>
+
+                                  
+
+                                </form>
+
+                                <p>Wyświetl stację z największą ilością wypożyczonych rowerów</p>
+
+                              <form action="api/getNajWypozyczen"  class="form-inline raport">                                   
+
+                                    <input type="submit"></input>
+
+                                  
+
+                                </form>
+
+                        </div>
+
+                        <div class="col-md-7 col-sm-12 col-xs-12 gutter">
+
+                            <table class="table rapo">
+
+                                <thead class="thead-dark">
+
+                                  <tr class="raporty_head">
+
+
+
+                                  </tr>
+
+                                </thead>
+
+                                <tbody class='raporty_table'>
+
+                                </tbody>
+
+                              </table>
+
+                            
+
+                        </div>
+
+                    </div>
+                    <br>
+                    <li><a href="#" class="add-project" data-toggle="modal" data-target="#add_project">Dodaj administratora</a></li>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <!-- Modal -->
+
+    <div id="add_rower" class="modal modal_toggle fade" role="dialog">
+
+        <div class="modal-dialog">
+
+
+
+            <!-- Modal content-->
+
+            <div class="modal-content">
+
+                <div class="modal-header login-header">
+
+                    <button type="button" class="close" data-dismiss="modal">×</button>
+
+                    <h4 class="modal-title">Dodaj rower</h4>
+
+                </div>
+
+                <div class="modal-body">
+
+                    <form class="default" action="/api/addRower" method="POST" autocomplete="on"> 
+
+                        <h1> Dodaj rower: </h1> 
+
+                        <p> 
+
+                            <label for="marka" class="marka" data-icon="e" >Marka</label>
+
+                            <input id="marka" name="marka" required="required" type="text" placeholder="Marka"/> 
+
+                        </p>
+
+                        <p> 
+
+                            <label for="model" class="model" data-icon="p">Model</label>
+
+                            <input id="model" name="model" required="required" type="text" placeholder="Model"/>
+
+                        </p>
+
+                        <p> 
+
+                            <label for="lokalizacja" class="lokalizacja" data-icon="e" >Lokalizacja</label>
+
+                            <input id="lokalizacja" name="lokalizacja" required="required" type="text" placeholder="12.01;14.04"/> 
+
+                        </p>
+
+                        <p> 
+
+                            <label for="id_stacja" class="id_stacja" data-icon="p">Stacja</label>
+
+                            <input id="id_stacja" name="id_stacja" required="required" type="number" placeholder="Stacja (id)"/>
+
+                        </p>
+
+                        <p> 
+
+                            <label for="id_stan" class="id_stan" data-icon="p">Stan</label>
+
+                            <input id="id_stan" name="id_stan" required="required" type="number" placeholder="Stan (id)"/>
+
+                        </p>
+
+                        <input type="submit" value="Dodaj"/>
+
+                    </form>
+
+                    </div>
+
+                <div class="modal-footer">
+
+                    <button type="button" class="cancel" data-dismiss="modal">Zamknij</button>
+
+                    <button type="submit" class="add-project" data-dismiss="modal">Dodaj</button>
+
+                </div>
+
+            </div>
+
+
+
+        </div>
+
+    </div>
+
+    <!-- Modal Add Product -->
+
+    <div id="add_product" class="modal modal_toggle fade" role="dialog">
+
+        <div class="modal-dialog">
+
+
+
+            <!-- Modal content-->
+
+            <div class="modal-content">
+
+                <div class="modal-header login-header">
+
+                    <button type="button" class="close" data-dismiss="modal">×</button>
+
+                    <h4 class="modal-title">Dodaj produkt</h4>
+
+                </div>
+
+                <div class="modal-body">
+
+                    <form class="default" action="/api/addProduct" method="POST" autocomplete="on"> 
+
+                        <h1> Dodaj produkt: </h1> 
+
+                        <p> 
+
+                            <label for="name" class="name" data-icon="e" >Nazwa</label>
+
+                            <input id="name" name="name" required="required" type="text" placeholder="Nazwa"/> 
+
+                        </p>
+
+                        <p> 
+
+                            <label for="description" class="description" data-icon="e" >Opis</label>
+
+                            <input id="description" name="description" required="required" type="text" placeholder="Opis"/> 
+
+                        </p>
+
+                        <p> 
+
+                            <label for="img_url" class="img_url" data-icon="p">Obrazek (TO DO)</label>
+
+                            <input id="img_url" name="img_url" required="required" type="text" placeholder="img_url"/>
+
+                        </p>
+
+                        <p> 
+
+                            <label for="category_id" class="category_id" data-icon="p">Kategoria (TO DO)</label>
+
+                            <input id="category_id" name="category_id" required="required" type="number" placeholder="category_id"/>
+
+                        </p>
+
+                        <p> 
+
+                            <label for="id_subiekt" class="id_subiekt" data-icon="p">Produkt z Subiekta</label>
+
+                            <input id="id_subiekt" name="id_subiekt" required="required" type="number" placeholder="id_subiekt"/>
+
+                        </p>
+
+                        <input type="submit" value="Dodaj"/>
+
+                    </form>
+
+                    </div>
+
+                <div class="modal-footer">
+
+                    <button type="button" class="cancel" data-dismiss="modal">Zamknij</button>
+
+                    <button type="submit" class="add-project" data-dismiss="modal">Dodaj</button>
+
+                </div>
+
+            </div>
+
+
+
+        </div>
+
+    </div>
+
+    <!-- Edit Product -->
+
+    <div id="edit_product" class="modal modal_toggle fade" role="dialog">
+
+        <div class="modal-dialog">
+
+
+
+            <!-- Modal content-->
+
+            <div class="modal-content">
+
+                <div class="modal-header login-header">
+
+                    <button type="button" class="close" data-dismiss="modal">×</button>
+
+                    <h4 class="modal-title">Edytuj produkt: </h4>
+
+                </div>
+
+                <div class="modal-body">
+
+                    <form class="default" action="/api/editProduct" method="POST" autocomplete="on"> 
+
+                        <h1> Edytuj produkt: </h1> 
+
+                        <input id="p_id" name="p_id" style="display: none">
+
+
+                        <p> 
+
+                            <label for="p_name" class="p_name" data-icon="e" >Nazwa</label>
+
+                            <input id="p_name" name="p_name" required="required" type="text"/> 
+
+                        </p>
+
+                        <p> 
+
+                            <label for="p_description" class="p_description" data-icon="p">Opis</label>
+
+                            <input id="p_description" name="p_description" required="required" type="text"/>
+
+                        </p>
+
+                        <p> 
+
+                            <label for="p_img_url" class="p_img_url" data-icon="p">URL Obrazka</label>
+
+                            <input id="p_img_url" name="p_img_url" required="required" type="text"/>
+
+                        </p>
+
+                        <p> 
+
+                            <label for="p_category_id" class="p_category_id" data-icon="e" >Kategoria</label>
+
+                            <input id="p_category_id" name="p_category_id" required="required" type="text"/> 
+
+                        </p>
+
+                        <p> 
+
+                            <label for="p_product_id_subiekt" class="p_product_id_subiekt" data-icon="e" >e_id_subiekt</label>
+
+                            <input id="p_product_id_subiekt" name="p_product_id_subiekt" required="required" type="number"/> 
+
+                        </p>                        
+
+                        <input type="submit" value="Zapisz"/>
+
+                    </form>
+
+                    </div>
+
+                <div class="modal-footer">
+
+                    <button type="button" class="cancel" data-dismiss="modal">Zamknij</button>
+
+                    <button type="submit" class="add-project" data-dismiss="modal">Dodaj</button>
+
+                </div>
+
+            </div>
+
+
+
+        </div>
+
+    </div>
+
+    <!-- Modal Add Client-->
+
+    <div id="add_client" class="modal modal_toggle fade" role="dialog">
+
+        <div class="modal-dialog">
+
+
+
+            <!-- Modal content-->
+
+            <div class="modal-content">
+
+                <div class="modal-header login-header">
+
+                    <button type="button" class="close" data-dismiss="modal">×</button>
+
+                    <h4 class="modal-title">Dodaj klienta</h4>
+
+                </div>
+
+                <div class="modal-body">
+
+                    <form class="default" action="/api/addClient" method="POST" autocomplete="on"> 
+
+                        <p> 
+
+                            <label for="name" class="name" data-icon="e" >Nazwa</label>
+
+                            <input id="name" name="name" required="required" type="text" placeholder="Nazwa"/> 
+
+                        </p>
+
+                        <p> 
+
+                            <label for="login" class="admlogin" data-icon="e" >Login</label>
+
+                            <input id="login" name="login" required="required" type="login" autocomplete="new-password" placeholder="Login"/> 
+
+                        </p>
+
+                        <p> 
+
+                            <label for="password" class="password" data-icon="p">Hasło</label>
+
+                            <input id="password" name="password" required="required" type="password" autocomplete="new-password" placeholder="Hasło"/>
+
+                        </p>
+
+                        <p> 
+
+                            <label for="email" class="email" data-icon="p">Email</label>
+
+                            <input id="email" name="email" type="email" placeholder="Email"/>
+
+                        </p>
+
+                        <p> 
+
+                            <label for="id_subiekt" class="id_subiekt" data-icon="p">Subiekt ID</label>
+
+                            <input id="id_subiekt" name="id_subiekt" required="required" type="number" placeholder="Subiekt ID"/>
+
+                        </p>
+
+                        
+
+                        <input type="submit" value="Dodaj"/>
+
+                    </form>
+
+                    </div>
+
+                <div class="modal-footer">
+
+                    <button type="button" class="cancel" data-dismiss="modal">Zamknij</button>
+
+                    <button type="submit" class="add-project" data-dismiss="modal">Dodaj</button>
+
+                </div>
+
+            </div>
+
+
+
+        </div>
+
+    </div>
+
+    <!-- Modal Edit Client-->
+
+    <div id="edit_client" class="modal modal_toggle fade" role="dialog">
+
+            <div class="modal-dialog">
+
+    
+
+                <!-- Modal content-->
+
+                <div class="modal-content">
+
+                    <div class="modal-header login-header">
+
+                        <button type="button" class="close" data-dismiss="modal">×</button>
+
+                    </div>
+
+                    <div class="modal-body">
+
+                        <form class="default" action="/api/editClient" method="POST" autocomplete="off"> 
+
+                            <h1> Edytuj klienta: </h1> 
+
+                            <input id="e_id" name="e_id" style="display: none">
+
+                            <p> 
+
+                                <label for="e_name" class="name" data-icon="e" >Nazwa</label>
+
+                                <input id="e_name" name="e_name" required="required" type="text"/> 
+
+                            </p>
+
+                            <p> 
+
+                                <label for="e_login" class="admlogin" data-icon="e" >Login</label>
+
+                                <input id="e_login" name="e_login" required="required" type="login"/> 
+
+                            </p>
+
+                            <p> 
+
+                                <label for="e_email" class="email" data-icon="p">Email</label>
+
+                                <input id="e_email" name="e_email" type="email"/>
+
+                            </p>
+
+                            <p> 
+
+                                <label for="e_haslo" class="haslo" data-icon="p">Hasło</label>
+
+                                <input id="e_haslo" name="e_password" required="required"  autocomplete="new-password" type="password"/>
+
+                            </p>
+
+                            <p> 
+
+                                <label for="e_client_id_subiekt" class="client_id_subiekt" data-icon="p">Subiekt ID</label>
+    
+                                <input id="e_client_id_subiekt" name="e_client_id_subiekt" required="required" type="number" placeholder="Subiekt ID"/>
+    
+                            </p>
+
+
+                            <input type="submit" value="Zapisz"/>
+
+                        </form>
+
+                        </div>
+
+                    <div class="modal-footer">
+
+                        <button type="button" class="cancel" data-dismiss="modal">Zamknij</button>
+
+                    </div>
+
+                </div>
+
+    
+
+            </div>
+
+    </div>
+
+    <!-- Modal Add Client-->
+
+    <div id="add_category" class="modal modal_toggle fade" role="dialog">
+
+        <div class="modal-dialog">
+
+
+
+            <!-- Modal content-->
+
+            <div class="modal-content">
+
+                <div class="modal-header login-header">
+
+                    <button type="button" class="close" data-dismiss="modal">×</button>
+
+                    <h4 class="modal-title">Dodaj kategorię</h4>
+
+                </div>
+
+                <div class="modal-body">
+
+                    <form class="default" action="/api/addCategory" method="POST" autocomplete="on"> 
+
+                        <p> 
+
+                            <label for="name" class="name" data-icon="e" >Nazwa</label>
+
+                            <input id="name" name="name" required="required" type="text" placeholder="Nazwa"/> 
+
+                        </p>
+
+                        <p> 
+
+                            <label for="login" class="admlogin" data-icon="e" >Kategoria nadrzędna</label>
+
+                            <select class="browser-default custom-select">
+                                <option selected>Open this select menu</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                            </select>
+
+                        </p>
+
+                        <p> 
+
+                            <label for="login" class="admlogin" data-icon="e" >Login</label>
+
+                            <input id="login" name="login" required="required" type="login" autocomplete="new-password" placeholder="Login"/> 
+
+                        </p>                     
+
+                        <input type="submit" value="Dodaj"/>
+
+                    </form>
+
+                    </div>
+
+                <div class="modal-footer">
+
+                    <button type="button" class="cancel" data-dismiss="modal">Zamknij</button>
+
+                    <button type="submit" class="add-project" data-dismiss="modal">Dodaj</button>
+
+                </div>
+
+            </div>
+
+
+
+        </div>
+
+    </div>
+
+    <div id="edit_rower" class="modal modal_toggle fade" role="dialog">
+
+        <div class="modal-dialog">
+
+
+
+            <!-- Modal content-->
+
+            <div class="modal-content">
+
+                <div class="modal-header login-header">
+
+                    <button type="button" class="close" data-dismiss="modal">×</button>
+
+                    <h4 class="modal-title">Edytuj rower: </h4>
+
+                </div>
+
+                <div class="modal-body">
+
+                    <form class="default" action="/api/editRower" method="POST" autocomplete="on"> 
+
+                        <h1> Edytuj rower: </h1> 
+
+                        <input id="r_id_rower" name="id_rower" style="display: none">
+
+                        <p> 
+
+                            <label for="r_marka" class="marka" data-icon="e" >Marka</label>
+
+                            <input id="r_marka" name="marka" required="required" type="text"/> 
+
+                        </p>
+
+                        <p> 
+
+                            <label for="r_model" class="model" data-icon="p">Model</label>
+
+                            <input id="r_model" name="model" required="required" type="text"/>
+
+                        </p>
+
+                        <p> 
+
+                            <label for="r_lokalizacja" class="lokalizacja" data-icon="p">Lokalizacja</label>
+
+                            <input id="r_lokalizacja" name="lokalizacja" required="required" type="text"/>
+
+                        </p>
+
+                        <p> 
+
+                            <label for="r_id_stacja" class="id_stacja" data-icon="e" >Id_stacja</label>
+
+                            <input id="r_id_stacja" name="id_stacja" required="required" type="number"/> 
+
+                        </p>
+
+                        <p> 
+
+                            <label for="r_id_stan" class="id_stan" data-icon="p">Id_stan</label>
+
+                            <input id="r_id_stan" name="id_stan" required="required" type="number"/>
+
+                        </p>
+
+                        <input type="submit" value="Zapisz"/>
+
+                    </form>
+
+                    </div>
+
+                <div class="modal-footer">
+
+                    <button type="button" class="cancel" data-dismiss="modal">Zamknij</button>
+
+                    <button type="submit" class="add-project" data-dismiss="modal">Dodaj</button>
+
+                </div>
+
+            </div>
+
+
+
+        </div>
+
+    </div>
+
+    
+
+    <!-- <script src="js/socket.js"></script> -->
+
+</body>
+
+</html>

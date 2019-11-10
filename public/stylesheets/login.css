@@ -1,9 +1,9 @@
-body#LoginForm{ background-image:url("https://images7.alphacoders.com/374/374296.jpg"); background-repeat:no-repeat; background-position:center; background-size:cover; padding:10px;}
-
+body#LoginForm{padding:10px;}
 body{
   height: 100vh;
 }
-.logo{margin-bottom: 20px;}
+.logo{margin-bottom: 50px;
+  margin-top: 50px;}
 
 .form-heading { color:#fff; font-size:23px;}
 
@@ -58,9 +58,6 @@ body{
   border-radius: 4px;
 
   margin: 10px auto 30px;
-
-  max-width: 40%;
-  min-height: 800px;
   padding: 5%;
 
 }
@@ -131,3 +128,49 @@ body{
 
 .back a {color: #444444; font-size: 13px;text-decoration: none;}
 
+@media only screen and (max-device-width: 320px) {
+  .main-div{
+    max-width: 100%;
+    min-height: 100vh;
+    margin: 0px;
+    border-radius: 0px;
+  }
+  .container{
+    padding: 0px;
+  }
+  .login-form{
+    padding: 0px;
+  }
+}
+@media only screen and (min-device-width: 321px) and (max-device-width: 600px) {
+  .main-div{
+    max-width: 100%;
+    min-height: 100vh;
+    margin: 0px;
+    border-radius: 0px;
+  }
+  .container{
+    padding: 0px;
+  }
+  .login-form{
+    padding: 0px;
+  }
+}
+@media only screen and (min-device-width: 601px) and (max-device-width: 766px) {
+  .main-div{
+    max-width: 80%;
+    min-height: 700px;
+  }
+}
+@media only screen and (min-device-width: 767px) and (max-device-width: 998px) {
+  .main-div{
+    max-width: 60%;
+    min-height: 700px;
+  }
+}
+@media only screen and (min-device-width:999px){
+  .main-div{
+    max-width: 40%;
+    min-height: 800px;
+  }
+}
