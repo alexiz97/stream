@@ -1,7 +1,7 @@
 {
-  "name": "bialpak_dev",
+  "name": "stream_dev",
   "version": "0.0.1",
-  "description": "Platforma sprzedażowa ",
+  "description": "Platforma streamingowa",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -14,14 +14,14 @@
   },
   "keywords": [
     "platforma",
-    "sklep"
+    "stream"
   ],
   "author": "Aleksander Somla",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/alexiz97/bialpak_dev/issues"
+    "url": "https://github.com/alexiz97/stream_dev/issues"
   },
-  "homepage": "https://github.com/alexiz97/bialpak_dev#readme",
+  "homepage": "https://github.com/alexiz97/stream_dev#readme",
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
     "bcryptjs": "^2.4.3",
@@ -33,7 +33,8 @@
     "mysql2": "^1.7.0",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
-    "sequelize": "^5.19.3"
+    "sequelize": "^5.19.3",
+    "video.js": "^7.6.5"
   },
   "devDependencies": {
     "create-pwa": "^2.2.0"

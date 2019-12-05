@@ -49,13 +49,13 @@
 
                         <li class="active"><a href="#" class="switch" id='stat'><i class="fas fa-chart-line"></i><span class="hidden-xs hidden-sm">Statystyki</span></a></li>
 
-                        <li><a href="#" class="switch" id='usr'><i class="fa fa-user" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Klienci</span></a></li>
+                        <li><a href="#" class="switch" id='usr'><i class="fa fa-user" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Konta</span></a></li>
 
-                        <li><a href="#" class="switch" id='prod'><i class="fas fa-box-open"></i></i><span class="hidden-xs hidden-sm">Produkty</span></a></li>
+                        <li><a href="#" class="switch" id='prod'><i class="fas fa-video"></i></i><span class="hidden-xs hidden-sm">Nagrania</span></a></li>
 
-                        <li><a href="#" class="switch" id='cat'><i class="fas fa-boxes"></i><span class="hidden-xs hidden-sm">Kategorie</span></a></li>
+                        <li><a href="#" class="switch" id='ter'><i class="fas fa-map-marked"></i><span class="hidden-xs hidden-sm">Tereny</span></a></li>
                         
-                        <li><a href="#" class="switch" id='zam'><i class="fas fa-dolly-flatbed"></i><span class="hidden-xs hidden-sm">Zamówienia</span></a></li>
+                        <li><a href="#" class="switch" id='zam'><span class="hidden-xs hidden-sm"></span></a></li>
 
                         <li><a href="#" class="switch" id='adm'><i class="fas fa-user-cog"></i><span class="hidden-xs hidden-sm">Administratorzy</span></a></li>
                     </ul>
@@ -244,7 +244,7 @@
 
                         <div class="col-md-6 col-sm-12 col-xs-12 gutter products-table">
 
-                            <h1>Produkty </h1>
+                            <h1>Nagrania </h1>
 
                             <div class="table-responsive">
 
@@ -258,9 +258,9 @@
 
                                         <th scope="col">Nazwa</th>
 
-                                        <th scope="col">Rabat</th>
+                                        <th scope="col">Data</th>
 
-                                        <th scope="col">Kwota</th>
+                                        <th scope="col">Rozmiar</th>
 
                                         <th scope="col"></th>
                                         
@@ -293,49 +293,74 @@
                     </div>
 
                 </div>
-                <!-- Kategorie -->
-                <div class="user-kat cat">
+                <!-- Tereny -->
+                <div class="user-kat ter">
 
-                    <h1 class='login'>Kategorie</h1>
+                    <h1 class='login'>Tereny</h1>
 
                     <div class="row">
 
-                        <div class="col-md-5 col-sm-12 col-xs-12 gutter categories-table">
+                        <div class="col-md-12 col-sm-12 col-xs-12 gutter">
+                            <ul class="nav nav-tabs" id="nav">
+                                <li class="switch_in" class="active"><a href="#" id="cards">Karty</a></li>
+                                <li class="switch_in"><a href="#" id="executives">Głosiciele</a></li>
+                                <li class="switch_in"><a href="#" id="dont_visits">Nie odwiedzać</a></li>
+                            </ul>
+                            <div class="cards" style="display: block;" id="prev_in_terr">
+                                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#add_territory">Dodaj teren</button>
+                                <div class="panel-group territories_table" id="accordion" role="tablist" aria-multiselectable="true"></div>
+                            </div>
+                            <div class="executives">
+                                <div class="col-md-8 col-sm-12 col-xs-12 gutter executives-table">
 
-                                <div id='panel-body0' class='categories'>
-                                        
-
+                                    <table class="table">
+        
+                                        <thead class="thead-dark">
+        
+                                          <tr>
+        
+                                            <th scope="col">#</th>
+        
+                                            <th scope="col">Nazwa</th>
+        
+                                            <th scope="col">Numer telefonu</th>
+        
+                                            <th scope="col">Typ</th>
+        
+                                            <th scope="col"></th>
+        
+                                            <th scope="col"></th>
+        
+                                          </tr>
+        
+                                        </thead>
+        
+                                        <tbody class='executives_table'>
+        
+                                        </tbody>
+        
+                                      </table>
+        
+                                      <button type="button" class="btn btn-success" data-toggle="modal" data-target="#add_executive">Dodaj głosiciela/grupę</button>
+                                
                                 </div>
-
-                                <div class="panel-group" style="margin: 15px; margin-top: 0px;">
-                                    <div class="panel panel-default">
-                                        <div class="panel-heading">
-                                            <form class="append_category" action="/api/addCategory"> 
-                                                <div class="input-group">
-                                                    <input class="hidden" name="parent_category_id" value="0"/>
-                                                    <input type="text" name="name" class="form-control" placeholder="Podaj nazwę">
-                                                    <span class="input-group-btn">
-                                                        <button class="btn btn-success" name="button" type="submit">Dodaj kategorię główną</button>
-                                                    </span> 
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-
+                            </div>
+                            <div class="dont_visits">
+                                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#add_dont_visit">Dodaj 'nie odwiedzać'</button>
+                            </div>
                         </div>
 
                     </div>
 
                 </div>
-                <!-- Zamówienia -->
+                <!-- Użytkownicy -->
                 <div class="user-uzytkownicy usr">
 
-                    <h1 class='login'>Klienci </h1>
+                    <h1 class='login'>Konta</h1>
 
                     <div class="row">
 
-                        <div class="col-md-5 col-sm-12 col-xs-12 gutter users-table">
+                        <div class="col-md-8 col-sm-12 col-xs-12 gutter users-table">
 
                             <table class="table">
 
@@ -345,13 +370,11 @@
 
                                     <th scope="col">#</th>
 
-                                    <th scope="col">Nazwa</th>
+                                    <th scope="col">Nazwisko i imię</th>
 
                                     <th scope="col">Login</th>
 
                                     <th scope="col">Email</th>
-
-                                    <th scope="col">Subiekt ID</th>
 
                                     <th scope="col"></th>
 
@@ -367,39 +390,11 @@
 
                               </table>
 
-                              <button type="button" class="btn btn-success" data-toggle="modal" data-target="#add_client">Dodaj klienta</button>
+                              <button type="button" class="btn btn-success" data-toggle="modal" data-target="#add_client">Dodaj konto</button>
 
                         </div>
 
-                        <div class="col-md-7 col-sm-12 col-xs-12 gutter">
-
-                            <thead class="thead-dark">
-
-                                <tr>
-
-                                  <th scope="col">#</th>
-
-                                  <th scope="col">Nazwa</th>
-
-                                  <th scope="col">Login</th>
-
-                                  <th scope="col">Email</th>
-
-                                  <th scope="col">Subiekt ID</th>
-
-                                  <th scope="col"></th>
-
-                                  <th scope="col"></th>
-
-                                </tr>
-
-                              </thead>
-
-                              <tbody class='clients_table'>
-
-                              </tbody>
-
-                            </table>
+                        <div class="col-md-4 col-sm-12 col-xs-12 gutter">
 
                         </div>
 
@@ -514,277 +509,7 @@
         </div>
     </div>
 
-
-
-
-
-    <!-- Modal -->
-
-    <div id="add_rower" class="modal modal_toggle fade" role="dialog">
-
-        <div class="modal-dialog">
-
-
-
-            <!-- Modal content-->
-
-            <div class="modal-content">
-
-                <div class="modal-header login-header">
-
-                    <button type="button" class="close" data-dismiss="modal">×</button>
-
-                    <h4 class="modal-title">Dodaj rower</h4>
-
-                </div>
-
-                <div class="modal-body">
-
-                    <form class="default" action="/api/addRower" method="POST" autocomplete="on"> 
-
-                        <h1> Dodaj rower: </h1> 
-
-                        <p> 
-
-                            <label for="marka" class="marka" data-icon="e" >Marka</label>
-
-                            <input id="marka" name="marka" required="required" type="text" placeholder="Marka"/> 
-
-                        </p>
-
-                        <p> 
-
-                            <label for="model" class="model" data-icon="p">Model</label>
-
-                            <input id="model" name="model" required="required" type="text" placeholder="Model"/>
-
-                        </p>
-
-                        <p> 
-
-                            <label for="lokalizacja" class="lokalizacja" data-icon="e" >Lokalizacja</label>
-
-                            <input id="lokalizacja" name="lokalizacja" required="required" type="text" placeholder="12.01;14.04"/> 
-
-                        </p>
-
-                        <p> 
-
-                            <label for="id_stacja" class="id_stacja" data-icon="p">Stacja</label>
-
-                            <input id="id_stacja" name="id_stacja" required="required" type="number" placeholder="Stacja (id)"/>
-
-                        </p>
-
-                        <p> 
-
-                            <label for="id_stan" class="id_stan" data-icon="p">Stan</label>
-
-                            <input id="id_stan" name="id_stan" required="required" type="number" placeholder="Stan (id)"/>
-
-                        </p>
-
-                        <input type="submit" value="Dodaj"/>
-
-                    </form>
-
-                    </div>
-
-                <div class="modal-footer">
-
-                    <button type="button" class="cancel" data-dismiss="modal">Zamknij</button>
-
-                    <button type="submit" class="add-project" data-dismiss="modal">Dodaj</button>
-
-                </div>
-
-            </div>
-
-
-
-        </div>
-
-    </div>
-
-    <!-- Modal Add Product -->
-
-    <div id="add_product" class="modal modal_toggle fade" role="dialog">
-
-        <div class="modal-dialog">
-
-
-
-            <!-- Modal content-->
-
-            <div class="modal-content">
-
-                <div class="modal-header login-header">
-
-                    <button type="button" class="close" data-dismiss="modal">×</button>
-
-                    <h4 class="modal-title">Dodaj produkt</h4>
-
-                </div>
-
-                <div class="modal-body">
-
-                    <form class="default" action="/api/addProduct" method="POST" autocomplete="on"> 
-
-                        <h1> Dodaj produkt: </h1> 
-
-                        <p> 
-
-                            <label for="name" class="name" data-icon="e" >Nazwa</label>
-
-                            <input id="name" name="name" required="required" type="text" placeholder="Nazwa"/> 
-
-                        </p>
-
-                        <p> 
-
-                            <label for="description" class="description" data-icon="e" >Opis</label>
-
-                            <input id="description" name="description" required="required" type="text" placeholder="Opis"/> 
-
-                        </p>
-
-                        <p> 
-
-                            <label for="img_url" class="img_url" data-icon="p">Obrazek (TO DO)</label>
-
-                            <input id="img_url" name="img_url" required="required" type="text" placeholder="img_url"/>
-
-                        </p>
-
-                        <p> 
-
-                            <label for="category_id" class="category_id" data-icon="p">Kategoria (TO DO)</label>
-
-                            <input id="category_id" name="category_id" required="required" type="number" placeholder="category_id"/>
-
-                        </p>
-
-                        <p> 
-
-                            <label for="id_subiekt" class="id_subiekt" data-icon="p">Produkt z Subiekta</label>
-
-                            <input id="id_subiekt" name="id_subiekt" required="required" type="number" placeholder="id_subiekt"/>
-
-                        </p>
-
-                        <input type="submit" value="Dodaj"/>
-
-                    </form>
-
-                    </div>
-
-                <div class="modal-footer">
-
-                    <button type="button" class="cancel" data-dismiss="modal">Zamknij</button>
-
-                    <button type="submit" class="add-project" data-dismiss="modal">Dodaj</button>
-
-                </div>
-
-            </div>
-
-
-
-        </div>
-
-    </div>
-
-    <!-- Edit Product -->
-
-    <div id="edit_product" class="modal modal_toggle fade" role="dialog">
-
-        <div class="modal-dialog">
-
-
-
-            <!-- Modal content-->
-
-            <div class="modal-content">
-
-                <div class="modal-header login-header">
-
-                    <button type="button" class="close" data-dismiss="modal">×</button>
-
-                    <h4 class="modal-title">Edytuj produkt: </h4>
-
-                </div>
-
-                <div class="modal-body">
-
-                    <form class="default" action="/api/editProduct" method="POST" autocomplete="on"> 
-
-                        <h1> Edytuj produkt: </h1> 
-
-                        <input id="p_id" name="p_id" style="display: none">
-
-
-                        <p> 
-
-                            <label for="p_name" class="p_name" data-icon="e" >Nazwa</label>
-
-                            <input id="p_name" name="p_name" required="required" type="text"/> 
-
-                        </p>
-
-                        <p> 
-
-                            <label for="p_description" class="p_description" data-icon="p">Opis</label>
-
-                            <input id="p_description" name="p_description" required="required" type="text"/>
-
-                        </p>
-
-                        <p> 
-
-                            <label for="p_img_url" class="p_img_url" data-icon="p">URL Obrazka</label>
-
-                            <input id="p_img_url" name="p_img_url" required="required" type="text"/>
-
-                        </p>
-
-                        <p> 
-
-                            <label for="p_category_id" class="p_category_id" data-icon="e" >Kategoria</label>
-
-                            <input id="p_category_id" name="p_category_id" required="required" type="text"/> 
-
-                        </p>
-
-                        <p> 
-
-                            <label for="p_product_id_subiekt" class="p_product_id_subiekt" data-icon="e" >e_id_subiekt</label>
-
-                            <input id="p_product_id_subiekt" name="p_product_id_subiekt" required="required" type="number"/> 
-
-                        </p>                        
-
-                        <input type="submit" value="Zapisz"/>
-
-                    </form>
-
-                    </div>
-
-                <div class="modal-footer">
-
-                    <button type="button" class="cancel" data-dismiss="modal">Zamknij</button>
-
-                    <button type="submit" class="add-project" data-dismiss="modal">Dodaj</button>
-
-                </div>
-
-            </div>
-
-
-
-        </div>
-
-    </div>
-
+    <!-- CLIENTS -->
     <!-- Modal Add Client-->
 
     <div id="add_client" class="modal modal_toggle fade" role="dialog">
@@ -839,17 +564,7 @@
 
                             <input id="email" name="email" type="email" placeholder="Email"/>
 
-                        </p>
-
-                        <p> 
-
-                            <label for="id_subiekt" class="id_subiekt" data-icon="p">Subiekt ID</label>
-
-                            <input id="id_subiekt" name="id_subiekt" required="required" type="number" placeholder="Subiekt ID"/>
-
-                        </p>
-
-                        
+                        </p>                        
 
                         <input type="submit" value="Dodaj"/>
 
@@ -931,14 +646,6 @@
 
                             </p>
 
-                            <p> 
-
-                                <label for="e_client_id_subiekt" class="client_id_subiekt" data-icon="p">Subiekt ID</label>
-    
-                                <input id="e_client_id_subiekt" name="e_client_id_subiekt" required="required" type="number" placeholder="Subiekt ID"/>
-    
-                            </p>
-
 
                             <input type="submit" value="Zapisz"/>
 
@@ -960,9 +667,10 @@
 
     </div>
 
-    <!-- Modal Add Client-->
+    <!-- TERRITORIES -->
+    <!-- Modal Add Territory-->
 
-    <div id="add_category" class="modal modal_toggle fade" role="dialog">
+    <div id="add_territory" class="modal modal_toggle fade" role="dialog">
 
         <div class="modal-dialog">
 
@@ -976,13 +684,21 @@
 
                     <button type="button" class="close" data-dismiss="modal">×</button>
 
-                    <h4 class="modal-title">Dodaj kategorię</h4>
+                    <h4 class="modal-title">Dodaj teren</h4>
 
                 </div>
 
                 <div class="modal-body">
 
-                    <form class="default" action="/api/addCategory" method="POST" autocomplete="on"> 
+                    <form class="default" action="/api/addTerritory" method="POST" autocomplete="on"> 
+
+                        <p> 
+
+                            <label for="number" class="number" data-icon="e" >Numer</label>
+
+                            <input id="number" name="number" required="required" type="number" placeholder="Numer"/> 
+
+                        </p>
 
                         <p> 
 
@@ -991,27 +707,16 @@
                             <input id="name" name="name" required="required" type="text" placeholder="Nazwa"/> 
 
                         </p>
-
                         <p> 
 
-                            <label for="login" class="admlogin" data-icon="e" >Kategoria nadrzędna</label>
+                            <label for="type" class="type" data-icon="e" >Typ</label>
 
-                            <select class="browser-default custom-select">
-                                <option selected>Open this select menu</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
+                            <select name="type" id="type">
+                                <option value="Miejski">Miejski</option>
+                                <option value="Wiejski">Wiejski</option>
                             </select>
-
                         </p>
-
-                        <p> 
-
-                            <label for="login" class="admlogin" data-icon="e" >Login</label>
-
-                            <input id="login" name="login" required="required" type="login" autocomplete="new-password" placeholder="Login"/> 
-
-                        </p>                     
+                     
 
                         <input type="submit" value="Dodaj"/>
 
@@ -1035,7 +740,82 @@
 
     </div>
 
-    <div id="edit_rower" class="modal modal_toggle fade" role="dialog">
+    <!-- Modal Edit Territory-->
+
+    <div id="edit_territory" class="modal modal_toggle fade" role="dialog">
+
+            <div class="modal-dialog">
+
+    
+
+                <!-- Modal content-->
+
+                <div class="modal-content">
+
+                    <div class="modal-header login-header">
+
+                        <button type="button" class="close" data-dismiss="modal">×</button>
+
+                    </div>
+
+                    <div class="modal-body">
+
+                        <form class="default" action="/api/editTerritory" method="POST" autocomplete="off"> 
+
+                            <h1> Edytuj teren: </h1> 
+
+                            <input id="et_id" name="et_id" style="display: none">
+
+                            <p> 
+
+                                <label for="et_number" class="et_number" data-icon="e" >Numer</label>
+    
+                                <input id="et_number" name="et_number" required="required" type="number" placeholder="Numer"/> 
+    
+                            </p>
+    
+                            <p> 
+    
+                                <label for="et_name" class="et_name" data-icon="e" >Nazwa</label>
+    
+                                <input id="et_name" name="et_name" required="required" type="text" placeholder="Nazwa"/> 
+    
+                            </p>
+                            <p> 
+    
+                                <label for="et_type" class="et_type" data-icon="e" >Typ</label>
+    
+                                <select name="et_type" id="et_type">
+                                    <option value="Miejski">Miejski</option>
+                                    <option value="Wiejski">Wiejski</option>
+                                </select>
+                            </p>
+
+
+                            <input type="submit" value="Zapisz"/>
+
+                        </form>
+
+                        </div>
+
+                    <div class="modal-footer">
+
+                        <button type="button" class="cancel" data-dismiss="modal">Zamknij</button>
+
+                    </div>
+
+                </div>
+
+    
+
+            </div>
+
+    </div>
+
+    <!-- ASSIGNMENTS -->
+    <!-- Modal Add Assignment-->
+
+    <div id="add_assignment" class="modal modal_toggle fade" role="dialog">
 
         <div class="modal-dialog">
 
@@ -1049,59 +829,58 @@
 
                     <button type="button" class="close" data-dismiss="modal">×</button>
 
-                    <h4 class="modal-title">Edytuj rower: </h4>
+                    <h4 class="modal-title">Przydziel teren</h4>
 
                 </div>
 
                 <div class="modal-body">
 
-                    <form class="default" action="/api/editRower" method="POST" autocomplete="on"> 
-
-                        <h1> Edytuj rower: </h1> 
-
-                        <input id="r_id_rower" name="id_rower" style="display: none">
-
+                    <form class="default" action="/api/addAssignment" method="POST" autocomplete="on"> 
+                        <input id="assign_territory_id" class="hidden" name="territory_id" required="required" type="number" placeholder="Nazwa"/>
                         <p> 
 
-                            <label for="r_marka" class="marka" data-icon="e" >Marka</label>
+                            <label for="executive_id" class="executive_id" data-icon="e">Komu</label>
 
-                            <input id="r_marka" name="marka" required="required" type="text"/> 
+                            <select name="executive_id" id="executive_id">
+                            </select>
 
                         </p>
 
                         <p> 
+                            
+                            <label for="dateOfAssignment" class="dateOfAssignment" data-icon="e" >Data rozpoczęcia</label>
 
-                            <label for="r_model" class="model" data-icon="p">Model</label>
+                            <div class="input-group">
+                            <input id="dateOfAssignment" class="form-control" name="dateOfAssignment" type="text" placeholder="Data rozpoczęcia"/> 
+                            <span class="input-group-btn">
+                                <button class="btn btn-default insertDateAssign" type="button"><i class="fas fa-calendar-day"></i></button>
+                            </span>    
 
-                            <input id="r_model" name="model" required="required" type="text"/>
-
+                            </div><!-- /input-group -->
+                            
                         </p>
-
                         <p> 
 
-                            <label for="r_lokalizacja" class="lokalizacja" data-icon="p">Lokalizacja</label>
-
-                            <input id="r_lokalizacja" name="lokalizacja" required="required" type="text"/>
-
+                            <label for="dateOfReturn" class="dateOfReturn" data-icon="e" >Data zdania</label>
+                            <div class="input-group">
+                            <input id="dateOfReturn"  class="form-control" name="dateOfReturn" type="text" placeholder="Data zdania"/> 
+                            <span class="input-group-btn">
+                                <button class="btn btn-default insertDateReturn" type="button"><i class="fas fa-calendar-day"></i></button>
+                            </span>  
+                            </div><!-- /input-group -->
                         </p>
-
                         <p> 
 
-                            <label for="r_id_stacja" class="id_stacja" data-icon="e" >Id_stacja</label>
+                            <label for="serviceYear" class="serviceYear" data-icon="e" >Rok służbowy</label>
 
-                            <input id="r_id_stacja" name="id_stacja" required="required" type="number"/> 
-
+                            <select name="serviceYear" id="serviceYear">
+                                <option value="Miejski">2019/2020</option>
+                                <option value="Wiejski">2018/2019</option>
+                            </select>
                         </p>
+                     
 
-                        <p> 
-
-                            <label for="r_id_stan" class="id_stan" data-icon="p">Id_stan</label>
-
-                            <input id="r_id_stan" name="id_stan" required="required" type="number"/>
-
-                        </p>
-
-                        <input type="submit" value="Zapisz"/>
+                        <input type="submit" value="Przydziel"/>
 
                     </form>
 
@@ -1123,7 +902,77 @@
 
     </div>
 
-    
+    <!-- EXECUTIVE -->
+    <!-- Modal Add Executive-->
+
+    <div id="add_executive" class="modal modal_toggle fade" role="dialog">
+
+        <div class="modal-dialog">
+
+
+
+            <!-- Modal content-->
+
+            <div class="modal-content">
+
+                <div class="modal-header login-header">
+
+                    <button type="button" class="close" data-dismiss="modal">×</button>
+
+                    <h4 class="modal-title">Dodaj głosiciela/grupę</h4>
+
+                </div>
+
+                <div class="modal-body">
+
+                    <form class="default" action="/api/addExecutive" method="POST" autocomplete="on"> 
+                        <p> 
+
+                            <label for="name" class="name" data-icon="e" >Nazwa</label>
+
+                            <input id="name" name="name" required="required" type="text" placeholder="Nazwa"/> 
+
+                        </p>
+                        <p> 
+
+                            <label for="phone_num" class="phone_num" data-icon="e" >Numer telefonu</label>
+
+                            <input id="phone_num" name="phone_num" type="phone" placeholder="Numer telefonu"/> 
+
+                        </p>
+                        <p> 
+
+                            <label for="type" class="type" data-icon="e" >Typ</label>
+
+                            <select name="type" id="type">
+                                <option value="publisher">Głosiciel</option>
+                                <option value="group">Grupa</option>
+                            </select>
+                        </p>
+                     
+
+                        <input type="submit" value="Dodaj"/>
+
+                    </form>
+
+                    </div>
+
+                <div class="modal-footer">
+
+                    <button type="button" class="cancel" data-dismiss="modal">Zamknij</button>
+
+                    <button type="submit" class="add-project" data-dismiss="modal">Dodaj</button>
+
+                </div>
+
+            </div>
+
+
+
+        </div>
+
+    </div>
+
 
     <!-- <script src="js/socket.js"></script> -->
 

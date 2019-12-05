@@ -68,7 +68,6 @@ module.exports = function(app) {
       login: req.body.login,
       email: req.body.email,
       password: req.body.password,
-      client_id_subiekt: req.body.id_subiekt,
       type: "Client"
     }).then(function() {
       res.json('success');
@@ -86,7 +85,6 @@ module.exports = function(app) {
         login: req.body.e_login,
         email: req.body.e_email,
         password: req.body.e_password,
-        client_id_subiekt: req.body.e_client_id_subiekt
       },
       { 
         where: { id: req.body.e_id } 
@@ -127,7 +125,7 @@ module.exports = function(app) {
   // Route for listing clients
   app.get("/api/listClients", isAuthenticatedAdmin, (_req,res) =>{
     db.Client.findAll({
-      attributes: ['id','name','login','email','client_id_subiekt']
+      attributes: ['id','name','login','email']
     }).then((data)=>{
       res.send({
         "code":200,
@@ -144,7 +142,7 @@ module.exports = function(app) {
   // Route for listing client data
   app.get("/api/clientData", isAuthenticatedAdmin, (req,res) =>{
     db.Client.findAll({
-      attributes: ['id','name','login','email','client_id_subiekt'], 
+      attributes: ['id','name','login','email'], 
       where: {
         id: req.query.id_konto
       }
@@ -161,230 +159,5 @@ module.exports = function(app) {
       })
     });
   });
-  // Route for listing client's shared products
-  app.get("/api/clientsProducts", isAuthenticatedAdmin, (req,res) =>{
-    db.Product_client.findAll({
-      attributes: ['product_id','discount'], 
-      where: {
-        client_id: req.query.id
-      }
-    }).then((data)=>{
-      res.send({
-        "code":200,
-        "success": data
-      })
-    }).catch((err)=>{
-      res.send({
-        "code":400,
-        "failed":"error ocurred",
-        "error": err
-      })
-    });
-  });
-
-  // PRODUCTS API
-  // Route for adding product
-  app.post("/api/addProduct", isAuthenticatedAdmin, (req, res) =>{
-    console.log(req.body);
-    db.Product.create({
-      name: req.body.name,
-      description: req.body.description,
-      img_url: req.body.img_url,
-      category_id: req.body.category_id,
-      product_id_subiekt: req.body.id_subiekt
-    }).then(function() {
-      res.json('success');
-      console.log('Dodano produkt: '+ req.body.name);
-    }).catch(function(err) {
-      console.log(err);
-      res.json(err);
-      // res.status(422).json(err.errors[0].message);
-    });
-  });
-  // Route for editing client
-  app.post("/api/editProduct", isAuthenticatedAdmin, (req,res) =>{
-    db.Product.update(
-      { 
-        name: req.body.p_name,
-        description: req.body.p_description,
-        img_url: req.body.p_img_url,
-        category_id: req.body.p_category_id,
-        product_id_subiekt: req.body.p_product_id_subiekt
-      },
-      { 
-        where: { id: req.body.p_id } 
-      }).then((a)=>{
-        console.log('Zaktualizowano produkt: ' + req.body.p_name + " " +a);
-        res.send({
-          "code":200,
-          "success": "success"
-        })
-      }).catch((err)=>{
-        console.log('Nie zaktualizowano produktu: '+ req.body.p_name + ' Error: ' + err);
-        res.send({
-          "code":400,
-          "failed":"error ocurred",
-          "error": err
-        })
-      })
-    });
-  // Route for deleting clients
-  app.get("/api/deleteProduct", isAuthenticatedAdmin, (req,res) =>{
-    db.Product.destroy({
-      where: {
-        id: req.query.id
-      }
-    }).then(()=>{
-      res.send({
-        "code":200,
-        "success": "success"
-      })
-    }).catch((err)=>{
-      res.send({
-        "code":400,
-        "failed":"error ocurred",
-        "error": err
-      })
-    });
-  });
-  // Route for listing clients
-  app.get("/api/listProducts", isAuthenticatedAdmin, (_req,res) =>{
-    db.Product.findAll({
-      attributes: ['id','name','category_id']
-    }).then((data)=>{
-      res.send({
-        "code":200,
-        "success": data
-      })
-    }).catch((err)=>{
-      res.send({
-        "code":400,
-        "failed":"error ocurred",
-        "error": err
-      })
-    });
-  });
-  // Route for listing client data
-  app.get("/api/productData", isAuthenticatedAdmin, (req,res) =>{
-    db.Product.findAll({
-      attributes: ['id','name','description','img_url','category_id','product_id_subiekt'], 
-      where: {
-        id: req.query.id
-      }
-    }).then((data)=>{
-      res.send({
-        "code":200,
-        "success": data
-      })
-    }).catch((err)=>{
-      res.send({
-        "code":400,
-        "failed":"error ocurred",
-        "error": err
-      })
-    });
-  });
-  // Route for listing product sharing
-  app.get("/api/productSharing", isAuthenticatedAdmin, (req,res) =>{
-    db.Product_client.findAll({
-      attributes: ['client_id','discount'], 
-      where: {
-        product_id: req.query.id
-      }
-    }).then((data)=>{
-      res.send({
-        "code":200,
-        "success": data
-      })
-    }).catch((err)=>{
-      res.send({
-        "code":400,
-        "failed":"error ocurred",
-        "error": err
-      })
-    });
-  });
-
-    // CATEGORIES API
-  // Route for adding product
-  app.post("/api/addCategory", isAuthenticatedAdmin, (req, res) =>{
-    console.log(req.body);
-    db.Category.create({
-      name: req.body.name,
-      parent_category_id: req.body.parent_category_id,
-    }).then(function(data) {
-      res.send({
-        "code":200,
-        "success": data
-      })
-      console.log('Dodano kategorię: '+ req.body.name);
-    }).catch(function(err) {
-      console.log(err);
-      res.json(err);
-      // res.status(422).json(err.errors[0].message);
-    });
-  });
-  // Route for editing client
-  app.post("/api/editCategory", isAuthenticatedAdmin, (req,res) =>{
-    db.Category.update(
-      { 
-        name: req.body.e_name,
-        parent_category_id: req.body.e_parent_category_id,
-        parent_discount: req.body.e_discount
-      },
-      { 
-        where: { id: req.body.e_id } 
-      }).then(()=>{
-        console.log('Zaktualizowano kategorię: ' + req.body.e_name);
-        res.send({
-          "code":200,
-          "success": "success"
-        })
-      }).catch((err)=>{
-        console.log('Nie zaktualizowano kategorii: '+ req.body.e_name + ' Error: ' + err);
-        res.send({
-          "code":400,
-          "failed":"error ocurred",
-          "error": err
-        })
-      })
-    });
-  // Route for deleting clients
-  app.get("/api/deleteCategory", isAuthenticatedAdmin, (req,res) =>{
-    db.Category.destroy({
-      where: {
-        id: req.query.id
-      }
-    }).then(()=>{
-      res.send({
-        "code":200,
-        "success": "success"
-      })
-    }).catch((err)=>{
-      res.send({
-        "code":400,
-        "failed":"error ocurred",
-        "error": err
-      })
-    });
-  });
-  // Route for listing clients
-  app.get("/api/listCategories", isAuthenticatedAdmin, (_req,res) =>{
-    db.Category.findAll({
-      attributes: ['id','name','parent_category_id','discount']
-    }).then((data)=>{
-      res.send({
-        "code":200,
-        "success": data
-      })
-    }).catch((err)=>{
-      res.send({
-        "code":400,
-        "failed":"error ocurred",
-        "error": err
-      })
-    });
-  });
-
 
 };

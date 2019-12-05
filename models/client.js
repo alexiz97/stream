@@ -29,11 +29,6 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: false
     },
-    client_id_subiekt: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      unique: false
-    },
     type: {
       type: DataTypes.STRING,
       allowNull: false

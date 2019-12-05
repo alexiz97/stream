@@ -9,16 +9,20 @@ module.exports = function(app) {
 //
   app.get("/", function(req, res) {
     // If the user already has an account send them to the members page
-    if (req.client) {
-      res.redirect("/client");
+    if(req.user){
+      if (req.user.type === "Client") {
+        res.redirect("/client");
+      }
     }
     res.sendFile(path.join(__dirname, '../private', 'login_client.html'));
   });
 //
   app.get("/panel", function(req, res) {
     // If the user already has an account send them to the members page
-    if (req.admin) {
-      res.redirect("/admin");
+    if(req.user){
+      if (req.user.type === "Admin") {
+        res.redirect("/admin");
+      }
     }
     res.sendFile(path.join(__dirname, '../private', 'login_admin.html'));
   });
