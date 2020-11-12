@@ -1,22 +1,22 @@
 {
-    "name": "Bialpak - Platforma sprzedażowa",
-    "short_name": "Bialpak",
-    "icons": [
-        {
-        "src": "icons/icon-192x192.png",
-        "sizes": "192x192",
-        "type": "image/png"
-      },
+  "name": "STREAM - Platforma streamingowa",
+  "short_name": "STREAM",
+  "icons": [
       {
-        "src": "icons/icon-512x512.png",
-        "sizes": "512x512",
-        "type": "image/png"
-      }
-    ],
-    "start_url": "/",
-    "scope": "/",
-    "gcm_sender_id": "103953800507",
-    "display": "standalone",
-    "background_color": "#FF6634",
-    "theme_color": "#FF6634"
-  }
+      "src": "icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "/",
+  "scope": "/",
+  "gcm_sender_id": "103953800507",
+  "display": "standalone",
+  "background_color": "#FF6634",
+  "theme_color": "#FF6634"
+}
